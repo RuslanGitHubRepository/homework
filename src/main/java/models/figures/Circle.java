@@ -14,8 +14,7 @@ public class Circle extends Ellipse implements Moveable {
     }
 
     @Override
-    public void move(int newX, int newY) {
-        updateXPosition(newX);
-        updateYPosition(newY);
+    public void move(Coordinates newCoordinate) {
+        updatePosition(newCoordinate);
     }
 }

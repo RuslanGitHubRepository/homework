@@ -1,5 +1,7 @@
 package models.resolvers;
 
+import models.Coordinates;
+
 public interface Moveable {
-    void move(int newX, int newY);
+    void move(Coordinates newCoordinate);
 }

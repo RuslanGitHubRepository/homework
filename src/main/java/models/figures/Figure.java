@@ -9,11 +9,7 @@ public abstract class Figure implements IFigure {
         this.coordinates = coordinates;
     }
 
-    void updateXPosition(int x) {
-        coordinates.setX(x);
-    }
-
-    void updateYPosition(int y) {
-        coordinates.setY(y);
+    void updatePosition(Coordinates newCoordinate) {
+        coordinates = newCoordinate;
     }
 }
