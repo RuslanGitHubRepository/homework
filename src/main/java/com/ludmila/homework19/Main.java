@@ -19,15 +19,24 @@ public class Main {
     //FIXME Ludmila Kondratyeva: Для работы программы необходимо добавить в classpath все библиотеки из ресурсов проекта
     public static void main(String[] args) {
         try {
-            UsersRepository usersRepository = null;
             ApplicationContext context = Application.run("com.ludmila.homework19", new HashMap<>());
-            usersRepository = context.getObject(UsersRepositoryFile.class);
+            UsersRepository usersRepository = context.getObject(UsersRepositoryFile.class);
             List<User> users = usersRepository.findAll();
             for (User user : users) {
-                System.out.println(user.getAge() + " " + user.getName() + " " + user.isWorker());
+                System.out.println(user);
             }
-            User user = new User("Игорь", 33, true);
+            User user = User.newBuilder()
+                    .setName("Игорь")
+                    .setAge(33)
+                    .setIsWorker(true)
+                    .build();
             usersRepository.save(user);
+            System.out.println("Найдем всех людей с возрастом 25 лет:");
+            List<User> findByAge = usersRepository.findAllByAge(25);
+            findByAge.forEach(System.out::println);
+            System.out.println("Найдем всех людей, которые являются работниками:");
+            List<User> allByIsWorkerIsTrue = usersRepository.findAllByIsWorkerIsTrue();
+            allByIsWorkerIsTrue.forEach(System.out::println);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }

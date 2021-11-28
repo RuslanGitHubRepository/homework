@@ -4,9 +4,16 @@ import com.ludmila.homework19.application.annotation.Bean;
 import com.ludmila.homework19.application.injects.InjectProperty;
 import com.ludmila.homework19.models.User;
 
+import javax.print.attribute.standard.MediaSize;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
+import java.util.function.BooleanSupplier;
+import java.util.function.Predicate;
+import java.util.regex.MatchResult;
+import java.util.regex.Pattern;
 
 /**
  * 27.11.2021
@@ -18,11 +25,19 @@ import java.util.List;
 @Bean
 @FileRepository(isResourcesFile = true)
 public class UsersRepositoryFile implements UsersRepository {
+    private enum Field {
+        NAME(1),
+        AGE(2),
+        IS_WORKER(3);
+        private Integer value;
+
+        Field(Integer value) {
+            this.value = value;
+        }
+    }
 
     @InjectProperty
     private File fileName;
-
-    public UsersRepositoryFile() {}
 
     @Override
     public List<User> findAll() {
@@ -48,7 +63,11 @@ public class UsersRepositoryFile implements UsersRepository {
                 // берем статус о работе
                 boolean isWorker = Boolean.parseBoolean(parts[2]);
                 // создаем нового человека
-                User newUser = new User(name, age, isWorker);
+                User newUser = User.newBuilder()
+                        .setName(name)
+                        .setAge(age)
+                        .setIsWorker(isWorker)
+                        .build();
                 // добавляем его в список
                 users.add(newUser);
                 // считываем новую строку
@@ -104,14 +123,38 @@ public class UsersRepositoryFile implements UsersRepository {
     }
 
     @Override
-    public List<User> findByAge(int age) {
-        // TODO: реализовать
-        return null;
+    public List<User> findAllByAge(int age) {
+        return getUsersByParameter(age, Field.AGE);
     }
 
     @Override
-    public List<User> findByIsWorkerIsTrue() {
-        // TODO: реализовать
-        return null;
+    public List<User> findAllByIsWorkerIsTrue() {
+        return getUsersByParameter(true, Field.IS_WORKER);
+    }
+
+    private <T extends java.io.Serializable & Comparable<T>> List<User> getUsersByParameter(T parameter, Field field) {
+        List<User> users = new ArrayList<>();
+        try(InputStream fileInputStream = new FileInputStream(fileName)) {
+            Predicate<MatchResult> condition = createCondition(parameter, field);
+            Scanner scanner = new Scanner(fileInputStream);
+            scanner = scanner.useDelimiter(Pattern.compile("\n"));
+            while (scanner.hasNext(Pattern.compile("(\\w+)\\|(\\d{1,2})\\|(\\w+)", Pattern.UNICODE_CHARACTER_CLASS))) {
+                MatchResult match = scanner.match();
+                if(condition.test(match)) {
+                    users.add(User.newBuilder()
+                            .setName(match.group(Field.NAME.value))
+                            .setAge(Integer.parseInt(match.group(Field.AGE.value), 10))
+                            .setIsWorker(Boolean.parseBoolean(match.group(Field.IS_WORKER.value)))
+                            .build());
+                }
+                scanner.next();
+            }
+        } catch (IOException exception) {
+            return Collections.emptyList();
+        }
+        return users;
+    }
+    private <T extends java.io.Serializable & Comparable<T>> Predicate<MatchResult> createCondition(T parameter, Field field) {
+        return matchResult -> parameter.toString().equals(matchResult.group(field.value));
     }
 }

@@ -1,44 +1,99 @@
 package com.ludmila.homework19.models;
 
+import java.util.StringJoiner;
+
 /**
- * 15.11.2021
+ * 27.11.2021
  * 20. Java IO
  *
- * @author Sidikov Marsel (First Software Engineering Platform)
+ * @author Ludmila Kondratyeva (National Aeronautics and Space Administration)
  * @version v1.0
  */
 public class User {
-    private String name;
-    private int age;
-    private boolean isWorker;
+    private final String name;
+    private final int age;
+    private final boolean isWorker;
 
-    public User(String name, int age, boolean isWorker) {
-        this.name = name;
-        this.age = age;
-        this.isWorker = isWorker;
+    private User(Builder builder) {
+        name = builder.name;
+        age = builder.age;
+        isWorker = builder.isWorker;
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
     }
 
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
     }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public boolean isWorker() {
         return isWorker;
     }
 
-    public void setWorker(boolean worker) {
-        isWorker = worker;
+    /**
+     * {@code User} builder static inner class.
+     */
+    public static final class Builder {
+        private String name;
+        private int age;
+        private boolean isWorker;
+
+        private Builder() {
+        }
+
+        /**
+         * Sets the {@code name} and returns a reference to this Builder so that the methods can be chained together.
+         *
+         * @param name the {@code name} to set
+         * @return a reference to this Builder
+         */
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Sets the {@code age} and returns a reference to this Builder so that the methods can be chained together.
+         *
+         * @param age the {@code age} to set
+         * @return a reference to this Builder
+         */
+        public Builder setAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        /**
+         * Sets the {@code isWorker} and returns a reference to this Builder so that the methods can be chained together.
+         *
+         * @param isWorker the {@code isWorker} to set
+         * @return a reference to this Builder
+         */
+        public Builder setIsWorker(boolean isWorker) {
+            this.isWorker = isWorker;
+            return this;
+        }
+
+        /**
+         * Returns a {@code User} built from the parameters previously set.
+         *
+         * @return a {@code User} built with parameters of this {@code User.Builder}
+         */
+        public User build() {
+            return new User(this);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+                .add("name='" + name + "'")
+                .add("age=" + age)
+                .add("isWorker=" + isWorker)
+                .toString();
     }
 }
