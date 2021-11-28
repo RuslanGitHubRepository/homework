@@ -1,0 +1,17 @@
+o123oo13|Camry|Black|133|700000
+o123oo13|Camry|Black|133|700000
+o123oo13|Camry|Black|133|700000
+o124oo14|Skoda|White|1256|36373677
+o125oo15|Toyota|Green|16467|264
+o126oo16|Audi|Blue|0|3537
+o127oo17|BMW|Violet|16745|6338
+o128oo18|Saab|Brown|116774|353435
+o129oo19|Linkoln|Yellow|65557|3256474
+o130oo20|Ferrari|Green|546|756328
+o131oo21|Maserati|Dark blue|38327|2536
+o132oo22|Corolla|Red|0|74746
+o133oo23|Skoda|Pearl|23426|345353
+o134oo24|Acura|Coral|7078|23667
+o135oo25|Infinity|Azure|2466|357646
+o136oo26|Pego|Silver|37585|799999
+o137oo27|Renaulth|Gold|0|223
