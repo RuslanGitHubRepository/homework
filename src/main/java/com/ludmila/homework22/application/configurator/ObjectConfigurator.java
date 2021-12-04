@@ -1,8 +1,6 @@
-package com.ludmila.homework19.application.configurator;
+package com.ludmila.homework22.application.configurator;
 
-import com.ludmila.homework19.application.ApplicationContext;
-
-import java.net.URISyntaxException;
+import com.ludmila.homework22.application.ApplicationContext;
 
 /**
  * 27.11.2021

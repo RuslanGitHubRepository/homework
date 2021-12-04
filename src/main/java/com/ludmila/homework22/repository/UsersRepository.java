@@ -1,7 +1,8 @@
-package com.ludmila.homework19.repository;
+package com.ludmila.homework22.repository;
 
-import com.ludmila.homework19.models.User;
+import com.ludmila.homework22.models.User;
 
+import java.io.IOException;
 import java.util.List;
 /**
  * 27.11.2021
@@ -15,4 +16,6 @@ public interface UsersRepository {
     void save(User user);
     List<User> findAllByAge(int age);
     List<User> findAllByIsWorkerIsTrue();
+    User findById(Long id);
+    boolean updateUser(User user) throws IOException;
 }

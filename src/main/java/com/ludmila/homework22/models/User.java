@@ -1,4 +1,4 @@
-package com.ludmila.homework19.models;
+package com.ludmila.homework22.models;
 
 import java.util.StringJoiner;
 
@@ -10,14 +10,16 @@ import java.util.StringJoiner;
  * @version v1.0
  */
 public class User {
+    private final Long id;
     private final String name;
-    private final int age;
-    private final boolean isWorker;
+    private final Integer age;
+    private final Boolean isWorker;
 
     private User(Builder builder) {
         name = builder.name;
         age = builder.age;
         isWorker = builder.isWorker;
+        id = builder.id;
     }
 
     public static Builder newBuilder() {
@@ -33,16 +35,31 @@ public class User {
     public boolean isWorker() {
         return isWorker;
     }
+    public Long getId() {
+        return id;
+    }
 
     /**
      * {@code User} builder static inner class.
      */
     public static final class Builder {
+        private Long id;
         private String name;
         private int age;
         private boolean isWorker;
 
         private Builder() {
+        }
+
+        /**
+         * Sets the {@code id} and returns a reference to this Builder so that the methods can be chained together.
+         *
+         * @param id the {@code id} to set
+         * @return a reference to this Builder
+         */
+        public Builder setId(Long id) {
+            this.id = id;
+            return this;
         }
 
         /**
@@ -91,9 +108,19 @@ public class User {
     @Override
     public String toString() {
         return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
                 .add("name='" + name + "'")
                 .add("age=" + age)
                 .add("isWorker=" + isWorker)
+                .toString();
+    }
+
+    public String getStringVersion() {
+        StringJoiner stringJoiner = new StringJoiner("|");
+        return stringJoiner.add(id.toString())
+                .add(name)
+                .add(age.toString())
+                .add(isWorker.toString())
                 .toString();
     }
 }

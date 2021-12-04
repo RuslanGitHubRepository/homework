@@ -1,8 +1,8 @@
-package com.ludmila.homework19.application.factory;
+package com.ludmila.homework22.application.factory;
 
-import com.ludmila.homework19.application.ApplicationContext;
-import com.ludmila.homework19.application.configurator.ObjectConfigurator;
-import com.ludmila.homework19.application.configurator.ProxyConfigurator;
+import com.ludmila.homework22.application.ApplicationContext;
+import com.ludmila.homework22.application.configurator.ObjectConfigurator;
+import com.ludmila.homework22.application.configurator.ProxyConfigurator;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.InvocationTargetException;

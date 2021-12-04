@@ -1,7 +1,7 @@
-package com.ludmila.homework19.application.configurator;
+package com.ludmila.homework22.application.configurator;
 
-import com.ludmila.homework19.application.ApplicationContext;
-import com.ludmila.homework19.application.injects.InjectByType;
+import com.ludmila.homework22.application.ApplicationContext;
+import com.ludmila.homework22.application.injects.InjectByType;
 import java.lang.reflect.Field;
 
 /**

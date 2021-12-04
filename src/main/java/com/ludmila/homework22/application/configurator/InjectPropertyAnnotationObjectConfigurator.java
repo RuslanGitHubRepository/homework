@@ -1,8 +1,8 @@
-package com.ludmila.homework19.application.configurator;
+package com.ludmila.homework22.application.configurator;
 
-import com.ludmila.homework19.application.ApplicationContext;
-import com.ludmila.homework19.application.injects.InjectProperty;
-import com.ludmila.homework19.repository.FileRepository;
+import com.ludmila.homework22.application.ApplicationContext;
+import com.ludmila.homework22.application.injects.InjectProperty;
+import com.ludmila.homework22.repository.FileRepository;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,7 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Field;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Objects;

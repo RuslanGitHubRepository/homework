@@ -1,5 +1,5 @@
-package com.ludmila.homework19.application.configurator;
-import com.ludmila.homework19.application.annotation.Bean;
+package com.ludmila.homework22.application.configurator;
+import com.ludmila.homework22.application.annotation.Bean;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

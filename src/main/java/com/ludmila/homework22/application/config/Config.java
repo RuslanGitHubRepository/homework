@@ -1,4 +1,4 @@
-package com.ludmila.homework19.application.config;
+package com.ludmila.homework22.application.config;
 
 import org.reflections.Reflections;
 /**

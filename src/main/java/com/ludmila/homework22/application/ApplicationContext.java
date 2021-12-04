@@ -1,8 +1,8 @@
-package com.ludmila.homework19.application;
+package com.ludmila.homework22.application;
 
-import com.ludmila.homework19.application.config.Config;
-import com.ludmila.homework19.application.factory.ObjectFactory;
-import com.ludmila.homework19.application.annotation.Bean;
+import com.ludmila.homework22.application.config.Config;
+import com.ludmila.homework22.application.factory.ObjectFactory;
+import com.ludmila.homework22.application.annotation.Bean;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

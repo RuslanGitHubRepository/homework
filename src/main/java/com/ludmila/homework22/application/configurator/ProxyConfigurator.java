@@ -1,4 +1,4 @@
-package com.ludmila.homework19.application.configurator;
+package com.ludmila.homework22.application.configurator;
 /**
  * 27.11.2021
  * 20. Java IO

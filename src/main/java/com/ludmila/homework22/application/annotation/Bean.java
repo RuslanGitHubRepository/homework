@@ -1,4 +1,4 @@
-package com.ludmila.homework19.application.annotation;
+package com.ludmila.homework22.application.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

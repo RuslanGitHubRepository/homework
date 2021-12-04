@@ -1,4 +1,4 @@
-package com.ludmila.homework19.repository;
+package com.ludmila.homework22.repository;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
