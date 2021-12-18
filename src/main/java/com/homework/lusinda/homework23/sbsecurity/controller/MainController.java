@@ -1,6 +1,6 @@
-package com.homework.lusinda.sbsecurity.controller;
+package com.homework.lusinda.homework23.sbsecurity.controller;
 
-import com.homework.lusinda.sbsecurity.utils.WebUtils;
+import com.homework.lusinda.homework23.sbsecurity.utils.WebUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;

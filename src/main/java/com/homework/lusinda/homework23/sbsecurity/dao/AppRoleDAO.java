@@ -1,6 +1,6 @@
-package com.homework.lusinda.sbsecurity.dao;
+package com.homework.lusinda.homework23.sbsecurity.dao;
 
-import com.homework.lusinda.sbsecurity.entity.UserRole;
+import com.homework.lusinda.homework23.sbsecurity.entity.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

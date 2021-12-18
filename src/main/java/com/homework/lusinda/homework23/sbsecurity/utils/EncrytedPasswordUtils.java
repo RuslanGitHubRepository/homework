@@ -1,4 +1,4 @@
-package com.homework.lusinda.sbsecurity.utils;
+package com.homework.lusinda.homework23.sbsecurity.utils;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

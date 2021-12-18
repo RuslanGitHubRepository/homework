@@ -1,4 +1,4 @@
-package com.homework.lusinda.sbsecurity.entity;
+package com.homework.lusinda.homework23.sbsecurity.entity;
 
 import javax.persistence.*;
 

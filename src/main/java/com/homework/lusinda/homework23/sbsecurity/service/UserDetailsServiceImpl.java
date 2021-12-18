@@ -1,8 +1,8 @@
-package com.homework.lusinda.sbsecurity.service;
+package com.homework.lusinda.homework23.sbsecurity.service;
 
-import com.homework.lusinda.sbsecurity.dao.AppRoleDAO;
-import com.homework.lusinda.sbsecurity.dao.AppUserDAO;
-import com.homework.lusinda.sbsecurity.entity.AppUser;
+import com.homework.lusinda.homework23.sbsecurity.dao.AppRoleDAO;
+import com.homework.lusinda.homework23.sbsecurity.dao.AppUserDAO;
+import com.homework.lusinda.homework23.sbsecurity.entity.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

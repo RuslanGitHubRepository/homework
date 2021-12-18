@@ -1,4 +1,4 @@
-package com.homework.lusinda.sbsecurity.config;
+package com.homework.lusinda.homework23.sbsecurity.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
