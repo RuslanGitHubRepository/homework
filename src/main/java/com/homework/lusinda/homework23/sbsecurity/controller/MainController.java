@@ -1,6 +1,9 @@
 package com.homework.lusinda.homework23.sbsecurity.controller;
 
+import com.homework.lusinda.homework23.sbsecurity.entity.Information;
+import com.homework.lusinda.homework23.sbsecurity.service.CatalogService;
 import com.homework.lusinda.homework23.sbsecurity.utils.WebUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -9,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class MainController {
+    @Autowired
+    private CatalogService catalogService;
 
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
@@ -76,6 +82,13 @@ public class MainController {
         }
 
         return "403Page";
+    }
+
+    @RequestMapping(value = "/catalog", method = RequestMethod.GET)
+    public String catalogPage(Model model) {
+        List<Information> allCatalog = catalogService.getAllCatalog();
+        model.addAttribute("allCatalog", allCatalog);
+        return "catalogs";
     }
 
 }

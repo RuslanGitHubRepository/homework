@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Info</title>
+</head>
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<h6>This is't protected page</h6>
+<h2>Catalog Info Page</h2>
+<h3>All catalogs from database</h3>
+
+
+<table cellspacing="2" border="1" cellpadding="5" width="600">
+<tr>
+    <th>Author</th>
+    <th>ISBN</th>
+    <th>Name</th>
+    <th>Publishing House</th>
+</tr>
+<tr th:each="catalog: ${allCatalog}">
+    <td align="center" th:text="${catalog.getAuthor()}" />
+    <td align="center" th:text="${catalog.getIsbn()}" />
+    <td align="center" th:text="${catalog.getName()}" />
+    <td align="center" th:text="${catalog.getPublishingHouse()}" />
+</tr>
+    </table>
+</body>
+
+</html>

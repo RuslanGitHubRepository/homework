@@ -13,6 +13,24 @@ alter table APP_USER
 alter table APP_USER
     add constraint APP_USER_UK unique (USER_NAME);
 
+-- Create table
+create table INFORMATION
+(
+    ID                BIGINT not null,
+    NAME              VARCHAR(64),
+    ISBN              VARCHAR(64),
+    AUTHOR            VARCHAR(64),
+    PUBLISHING_HOUSE  VARCHAR(64)
+) ;
+--
+alter table INFORMATION
+      add constraint INFORMATION_PK primary key (ID);
+--
+INSERT INTO information VALUES (1, 'Kafka in Action (MEAP Edition)', '2-266-11156-6','Dylan Scott','MANNING');
+INSERT INTO information VALUES (2, 'Программируй & типизируй', '978-5-4461-1692-8','Ришкуция В.','MANNING');
+INSERT INTO information VALUES (3, 'TypeScript быстро', '978-5-4461-1725-3','Файн Я., Моисеев А.','MANNING');
+INSERT INTO information VALUES (4, 'Обработка естественного языка в действии', '978-5-4461-1371-2','Хобсон Л., Ханнес Х., Коул Х.','MANNING');
+INSERT INTO information VALUES (5, 'Стильный Java. Код, который работает всегда и везде', '978-5-4461-1739-0','Фаэлла М.','MANNING');
 
 -- Create table
 create table APP_ROLE
