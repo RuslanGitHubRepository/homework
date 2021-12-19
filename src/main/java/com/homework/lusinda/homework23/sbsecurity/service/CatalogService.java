@@ -15,4 +15,7 @@ public class CatalogService {
     public List<Information> getAllCatalog() {
         return informationDAO.getAllInformation();
     }
+    public Long saveRecord(Information info) {
+        return informationDAO.insertInformation(info);
+    }
 }

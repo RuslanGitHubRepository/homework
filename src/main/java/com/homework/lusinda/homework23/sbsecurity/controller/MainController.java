@@ -8,11 +8,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class MainController {
@@ -91,4 +93,18 @@ public class MainController {
         return "catalogs";
     }
 
+    @RequestMapping(value = "/updateCatalog", method = RequestMethod.GET)
+    public String catalogForm(Model model) {
+         model.addAttribute("information", new Information());
+        return "updateCatalog";
+    }
+
+    @RequestMapping(value = "/insertRecord", method = RequestMethod.POST)
+    public String submissionResult(Model model, @ModelAttribute("information") Information info) {
+        Long id = catalogService.saveRecord(info);
+        if(Objects.nonNull(id)) {
+            model.addAttribute("successfully", true);
+        }
+        return "updateCatalog";
+    }
 }

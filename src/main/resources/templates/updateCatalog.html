@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update catalog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <a th:href="@{/}">Home</a>
+</head>
+<body>
+
+<h3>Insert your record to data base and look at the catalog page</h3>
+
+<form th:action="@{/insertRecord}" th:object="${information}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>ISBN: <input type="text" th:field="*{isbn}" /></p>
+    <p>Author: <input type="text" th:field="*{author}" /></p>
+    <p>Publishing house: <input type="text" th:field="*{publishingHouse}" /></p>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+<div th:if="${successfully == true}"
+     style="color:orange;margin:10px 0px;">
+    Record inserted successfully!<br />
+</div>
+</body>
+</html>
